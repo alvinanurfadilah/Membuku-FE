@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  width: 500px;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  display: block;
+  text-align: center;
+}
+.form-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group .control {
+  flex: 1;
+}
+
+.control {
+  position: relative;
+}
+.control input,
+select {
+  width: 100%;
+}
+
+p.invalid-message {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  color: red;
+  margin: 0;
+  font-size: 13px;
+  font-style: italic;
+}

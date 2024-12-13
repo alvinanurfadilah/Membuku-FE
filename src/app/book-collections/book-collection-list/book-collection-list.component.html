@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th>cover</th>
+      <th>nama</th>
+      <th>penulis</th>
+      <th>avg rating</th>
+      <th>rating</th>
+      <th>status</th>
+      <th>review</th>
+      <th>tanggal baca</th>
+      <th>tanggal di tambahkan</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (bookCollection of collectionBook; track $index) {
+    <tr book-collection [bookCollection]="bookCollection" (deleted)="updateList()"></tr>
+    }
+  </tbody>
+</table>

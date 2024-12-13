@@ -1,0 +1,12 @@
+<td>
+  <img [src]="imagePath" [alt]="book.cover">
+  <!-- {{ bookCover }} -->
+</td>
+<td>{{ book.name }}</td>
+<td>{{ book.releaseDate | date: dateFormat }}</td>
+<td>{{ book.author.name }}</td>
+<td>{{ orderNumber }}</td>
+<td class="table-button-container">
+  <button class="edit-button" [routerLink]="['edit', book.id]">Edit</button>
+  <button class="delete-button" (click)="onDelete(book.id)">Delete</button>
+</td>

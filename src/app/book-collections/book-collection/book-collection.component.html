@@ -1,0 +1,42 @@
+<td>
+  <img
+    [src]="imagePath"
+    [alt]="bookCollection.name"
+    [title]="bookCollection.name"
+  />
+</td>
+<td>{{ bookCollection.name }}</td>
+<td>{{ bookCollection.author.name }}</td>
+<td>{{ bookCollection.avgRating }}</td>
+<td>
+  <app-rating
+    [rate]="bookCollection.rating"
+    (rated)="onAddRating($event)"
+  ></app-rating>
+  @if (bookCollection.rating) {
+  <a class="book-clear" (click)="onClearRating()">clear</a>
+  }
+</td>
+<td>
+  {{ bookCollection.readStatus }}
+</td>
+<td>
+  @if(bookCollection.reviewNote) {
+  {{ bookCollection.reviewNote | truncate : 50 }}
+  } @else{
+  <a [routerLink]="['edit', bookCollection.bookId]">tambahkan review</a>
+  }
+</td>
+<td>
+  @if (bookCollection.readDate) {
+  {{ bookCollection.readDate | date : "d MMM yyyy" }}
+  }@else{ not set }
+</td>
+<td>
+  {{ bookCollection.addedDate | date : "d MMM yyyy" }}
+</td>
+<td class="action">
+  <a [routerLink]="['edit', bookCollection.bookId]">edit</a>
+  <!-- <a>hapus</a> -->
+  <a (click)="onRemoveFromCollection(bookCollection.bookId)">hapus</a>
+</td>

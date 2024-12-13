@@ -1,0 +1,29 @@
+<header>
+  <nav>
+    <a [routerLink]="['beranda']">
+      <h1>Membuku</h1>
+    </a>
+    <a [routerLink]="['beranda']">Beranda</a>
+    <a [routerLink]="['koleksi']">Koleksi Buku</a>
+    
+    @if (isAdmin) {
+      <a [routerLink]="['admin']">Admin</a>
+    }
+
+    <form class="search">
+      <input
+        type="text"
+        placeholder="Cari buku yang anda ingin.."
+        name="searchQuery"
+        autocomplete="off"
+      />
+      <button>Cari</button>
+    </form>
+
+    @if (!isAuthenticated) {
+      <a [routerLink]="['login']">Login</a>
+    } @else {
+      <a (click)="onLogout()" style="cursor: pointer;">Logout</a>
+    }
+  </nav>
+</header>

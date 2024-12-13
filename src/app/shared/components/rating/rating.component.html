@@ -1,0 +1,7 @@
+@for (star of stars; track $index) {
+<app-star
+  [star]="star"
+  (click)="onSelectedRating(star.starNumber)"
+  [style.cursor]="star.volume === 'empty' && !isReadOnly ? 'pointer' : ''"
+></app-star>
+}

@@ -1,0 +1,33 @@
+.form-control {
+  display: flex;
+}
+
+.form-control label {
+  flex: 0.3;
+}
+
+.form-control input {
+  flex: 0.7;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  height: 30px;
+}
+
+button {
+  margin: 20px 10px 0 0;
+  color: white;
+}
+
+.submit-button {
+  background-color: blue;
+}
+
+.cancel-button {
+  background-color: red;
+}

@@ -1,0 +1,17 @@
+<h2>Login</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    placeholder="Username Anda..."
+    formControlName="username"
+  />
+  <input
+    type="password"
+    placeholder="Password Anda..."
+    formControlName="password"
+  />
+  <button type="submit">Login</button>
+</form>
+
+<a [routerLink]="['/daftar']">Klik disini untuk mendaftar!</a>

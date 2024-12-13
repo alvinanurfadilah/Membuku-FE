@@ -1,0 +1,19 @@
+<div class="highlighted-book">
+  <div class="book-image">
+    <img [src]="imagePath" [alt]="bookHighlight.name" />
+  </div>
+  <div class="book-detail">
+    <p class="title">{{ bookHighlight.name }}</p>
+    <p class="author">
+      By <strong>{{ bookHighlight.authorName }}</strong>
+    </p>
+    <p class="publish-date">
+      Di rilis pada tahun {{ bookHighlight.releaseDate | date : "yyyy" }}
+    </p>
+    <app-dropdown-button
+      [buttonContent]="readStatuses[0]"
+      [dropdownContents]="readStatuses"
+      (result)="onAddToCollection($event)"
+    />
+  </div>
+</div>

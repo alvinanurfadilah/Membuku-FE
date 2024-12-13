@@ -1,0 +1,15 @@
+<div class="dropdown-btn-wrapper">
+  <button class="main-btn" (click)="onClick(buttonContent.value)">
+    {{ buttonContent.text }}
+  </button>
+  <button class="expand-btn" (click)="onExpand()">↓</button>
+</div>
+@if (isDropdownVisible) {
+<div class="dropdown-content">
+  @for (dropdownContent of dropdownContents; track $index) {
+  <span (click)="onClick(dropdownContent.value)">{{
+    dropdownContent.text
+  }}</span>
+  }
+</div>
+}

@@ -1,0 +1,29 @@
+.table-button-container {
+  text-align: center;
+}
+
+.table-button-container button {
+  margin: 0.5rem;
+}
+
+td {
+  padding-left: 10px;
+}
+
+img {
+  width: 65px;
+  height: 100px;
+}
+
+button {
+  width: 60px;
+  color: white;
+}
+
+.edit-button {
+  background-color: blue;
+}
+
+.delete-button {
+  background-color: red;
+}

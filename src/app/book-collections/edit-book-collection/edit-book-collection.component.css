@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  gap: 15px;
+  border-bottom: 1px #eee solid;
+  width: 100%;
+  padding: 12px 5px;
+}
+
+img {
+  width: 65px;
+  height: 100px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+}

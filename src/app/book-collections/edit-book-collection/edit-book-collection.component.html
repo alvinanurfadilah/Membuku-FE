@@ -1,0 +1,44 @@
+<header>
+  <img [src]="getBookCover()" [alt]="getBookEdit.bookName" />
+  <div>
+    <h3>{{ getBookEdit.bookName }}</h3>
+    <span>oleh {{ getBookEdit.authorName }}</span>
+  </div>
+</header>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <span>Rating anda:</span>
+    <app-rating
+      [rate]="form.controls.rating.value"
+      (rated)="onRate($event)"
+    ></app-rating>
+  </div>
+
+  <p>
+    <label for="review">Menurut anda bukunya:</label>
+    <textarea
+      name="review"
+      id="review"
+      placeholder="masukkan review anda (opsional)"
+      formControlName="review1"
+    ></textarea>
+  </p>
+
+  <div>
+    <label for="readDate">Tanggal selesai membacanya (opsional):</label>
+    <p>
+      <input
+        type="date"
+        name="readDate"
+        id="readDate"
+        formControlName="readDate"
+      />
+      <button type="button" (click)="setDateToNow()">
+        Set tanggal sekarang
+      </button>
+    </p>
+  </div>
+
+  <button type="submit">tambahkan</button>
+</form>

@@ -1,0 +1,72 @@
+.table-action-container {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.add-button {
+  width: 150px;
+  background-color: green;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  /* min-width: 768px; */
+  min-width: 900px;
+}
+
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table th {
+  padding: 0.7rem;
+  background-color: bisque;
+}
+
+table td {
+  padding: 0.5rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  min-width: 900px;
+  box-shadow: 7px 7px 7px 7px gainsboro;
+  height: 100px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.search label {
+  margin-right: 10px;
+}
+
+tfoot {
+  background-color: bisque;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-group-container {
+  display: flex;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  margin-right: 3px;
+  border-radius: 2px;
+}

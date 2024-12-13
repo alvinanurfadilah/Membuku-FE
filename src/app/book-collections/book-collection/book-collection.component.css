@@ -1,0 +1,23 @@
+:host {
+  padding: 10px;
+  border-bottom: 1px #eee solid;
+  margin-bottom: 100px;
+  font-size: 14px;
+}
+img {
+  width: 65px;
+  height: 100px;
+}
+
+td {
+  padding: 12px 5px 5px 0;
+}
+
+td.action a {
+  margin: 0 2.5px;
+  cursor: pointer;
+}
+
+.book-clear {
+  cursor: pointer;
+}

@@ -1,0 +1,61 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-container">
+    <div class="image-cover">
+      @if (previewUrl) {
+      <img class="image" [src]="previewUrl" />
+      } @else { @if (!id) {
+      <img class="image" [src]="noImage" />
+      } @else {
+      <img class="image" [src]="getBookCover(id)" [alt]="form.controls.cover" />
+      } }
+    </div>
+
+    <div class="all-form-container">
+      <div class="form-control">
+        <label for="">Cover</label>
+        <input type="file" (change)="onFileChange($event)" />
+      </div>
+      <div class="form-control">
+        <label for="">Name</label>
+        <input type="text" [formControl]="form.controls.name" />
+      </div>
+      <div class="form-control">
+        <label for="">Release Date</label>
+        <input type="date" [formControl]="form.controls.releaseDate" />
+      </div>
+      <div class="form-control">
+        <label for="author">Author</label>
+        <select
+          name="author"
+          id="author"
+          [formControl]="form.controls.authorId"
+        >
+          <option [value]="null">No Specific Author</option>
+          @for (author of getAllAuthor; track $index) {
+          <option [value]="author.id">{{ author.name }}</option>
+          }
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="book-highlight">Add to Book Highlight?</label>
+        <input
+          (change)="onChangeOrderNumber()"
+          class="checkbox"
+          type="checkbox"
+          [formControl]="form.controls.bookHighlight"
+        />
+      </div>
+      @if (orderNumber == true) {
+      <div class="form-control">
+        <label for="orderNumber">Order Number</label>
+        <input type="number" [formControl]="form.controls.orderNumber" />
+      </div>
+      }
+
+      <button class="submit-button" type="submit">Submit</button>
+      <button class="cancel-button" type="button" (click)="onCancel()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</form>

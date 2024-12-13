@@ -1,0 +1,28 @@
+<div class="table-action-container">
+  <button [routerLink]="['new']" class="add-button">Add New Author</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (author of authors; track $index) {
+    <tr app-author [author]="author" (deleted)="updateList()"></tr>
+
+    } @empty { @if (isLoading) {
+    <tr>
+      <td colspan="2">Sedang mengambil data</td>
+    </tr>
+    } @else {
+    <tr>
+      <td colspan="2">Authors not found</td>
+    </tr>
+
+    @if(errorMessage) {
+    <td colspan="2">{{ errorMessage }}</td>
+    } } }
+  </tbody>
+</table>

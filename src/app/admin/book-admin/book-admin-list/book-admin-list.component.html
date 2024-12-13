@@ -1,0 +1,80 @@
+<form [formGroup]="filterForm">
+  <div class="search">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" [formControl]="filterForm.controls.name" />
+    </div>
+    <div>
+      <label for="authorName">Author Name</label>
+      <input type="text" id="authorName" [formControl]="filterForm.controls.authorName" />
+    </div>
+    <div>
+      <label for="pageSize">Page Size</label>
+      <input
+        type="number"
+        id="pageSize"
+        [formControl]="filterForm.controls.pageSize"
+        min="1"
+        max="10"
+        (change)="onPageChange()"
+      />
+    </div>
+  </div>
+</form>
+
+<div class="table-action-container">
+  <button [routerLink]="['new']" class="add-button">Add New Book</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Name</th>
+      <th>Release Date</th>
+      <th>Author</th>
+      <th>Order Number</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (book of books; track $index) {
+    <tr app-book [book]="book" [bookHighlight]="bookHighlight" (deleted)="updateList()"></tr>
+
+    } @empty { @if (isLoading) {
+    <tr>
+      <td colspan="6">Sedang mengambil data</td>
+    </tr>
+    } @else {
+    <tr>
+      <td colspan="6">Books not found</td>
+    </tr>
+
+    @if(errorMessage) {
+    <td colspan="6">{{ errorMessage }}</td>
+    } } }
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="6">
+        <div class="pagination">
+          <div>
+            Page {{ filterForm.value.pageNumber }} of {{ totalPages }}
+          </div>
+          <div class="page-group-container">
+            @for (pageNumber of [].constructor(totalPages); track $index; let
+            index = $index) {
+            <a
+              [class.active]="filterForm.value.pageNumber === index + 1"
+              [routerLink]="['.']"
+              [queryParams]="{ pageNumber: index + 1 }"
+              queryParamsHandling="merge"
+            >
+              <div class="page">{{ index + 1 }}</div>
+            </a>
+            }
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+</table>

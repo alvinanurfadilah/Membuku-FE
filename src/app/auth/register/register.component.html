@@ -1,0 +1,137 @@
+<h2>Daftar</h2>
+<!-- {{ form.controls.username.errors | json }} -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="control">
+    @if (form.controls.username.touched && form.controls.username.invalid) {
+    @if(form.controls.username.hasError('required')){
+    <p class="invalid-message">username tidak valid</p>
+    } @else if(form.controls.username.hasError('usernameIsNotUnique')){
+    <p class="invalid-message">username sudah digunakan</p>
+    } }
+    <input
+      type="text"
+      placeholder="masukkan username"
+      autocomplete="off"
+      name="username"
+      formControlName="username"
+    />
+  </div>
+  <div class="control">
+    @if (form.controls.email.touched && form.controls.email.invalid) {
+    <p class="invalid-message">email tidak valid</p>
+    }
+    <input
+      type="email"
+      placeholder="masukkan email"
+      name="email"
+      formControlName="email"
+    />
+  </div>
+  <div class="form-group" formGroupName="passwords">
+    <div class="control">
+      @if (passwords.controls.password.touched &&
+      passwords.controls.password.invalid) {
+      <p class="invalid-message">password tidak valid</p>
+      }
+      <input
+        type="password"
+        placeholder="masukkan password"
+        name="password"
+        formControlName="password"
+      />
+    </div>
+
+    <div class="control">
+      @if (passwords.controls.confirmPassword.touched && passwords.invalid) {
+      @if(passwords.controls.confirmPassword.errors?.['required']){
+      <p class="invalid-message">confirm password tidak valid</p>
+      } @else if(passwords.hasError('notEqualValues')){
+      <p class="invalid-message">password harus sama</p>
+      } }
+      <input
+        type="password"
+        placeholder="ketik ulang password"
+        name="confirmPassword"
+        formControlName="confirmPassword"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="control">
+      @if (form.controls.firstName.touched && form.controls.firstName.invalid) {
+      <p class="invalid-message">nama depan tidak valid</p>
+      }
+      <input
+        type="text"
+        placeholder="masukkan nama depan"
+        name="firstName"
+        formControlName="firstName"
+      />
+    </div>
+    <div class="control">
+      @if (form.controls.lastName.touched && form.controls.lastName.invalid) {
+      <p class="invalid-message">nama belakang tidak valid</p>
+      }
+      <input
+        type="text"
+        placeholder="masukkan nama belakang"
+        name="lastName"
+        formControlName="lastName"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="control">
+      @if (form.controls.gender.touched && form.controls.gender.invalid) {
+      <p class="invalid-message">jenis kelamin tidak valid</p>
+      }
+      <select name="gender" formControlName="gender">
+        <option value="" selected>pilih jenis kelamin</option>
+        @for (gender of genderDropdown; track $index) {
+        <option [value]="gender.value">{{ gender.label }}</option>
+        }
+      </select>
+    </div>
+    <div class="control">
+      @if (form.controls.birthDate.touched && form.controls.birthDate.invalid) {
+      @if(form.controls.birthDate.errors?.['required']){
+      <p class="invalid-message">tanggal lahir tidak valid</p>
+      } @else if (form.controls.birthDate.hasError('dateIsNotInPast')) {
+      <p class="invalid-message">tidak valid, harus di masa lalu</p>
+      } }
+      <input
+        type="date"
+        placeholder="masukkan tanggal lahir"
+        name="birthDate"
+        formControlName="birthDate"
+      />
+    </div>
+  </div>
+  <div class="control">
+    @if (form.controls.role.touched && form.controls.role.invalid) {
+      <p class="invalid-message">role tidak valid</p>
+    }
+    <select name="role" formControlName="role">
+      <option value="" selected>pilih role</option>
+      @for (role of roleDropdown; track $index) {
+        <option [value]="role.value">{{ role.label }}</option>
+      }
+    </select>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="form.invalid"
+    [style.cursor]="form.invalid ? 'not-alowed' : 'pointer'"
+    [textContent]="
+      form.invalid
+        ? 'Mohon isi data untuk menjadi anggota'
+        : 'Daftar sebagai Anggota'
+    "
+  >
+    Daftar sebagai Anggota
+  </button>
+</form>
+<div>
+  <a [routerLink]="['/login']">Sudah terdaftar? Klik disini untuk login!</a>
+</div>

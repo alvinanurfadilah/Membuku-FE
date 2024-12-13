@@ -1,0 +1,5 @@
+<div class="highlighted-book-container">
+  @for (bookHighlight of highlightedBook; track bookHighlight.orderNumber) {
+  <app-book-highlight [bookHighlight]="bookHighlight"></app-book-highlight>
+  }
+</div>

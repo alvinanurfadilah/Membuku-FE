@@ -1,0 +1,30 @@
+.table-action-container {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.add-button {
+  width: 150px;
+  background-color: green;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  /* min-width: 768px; */
+  min-width: 900px;
+}
+
+table tr:nth-child(even) {
+  background-color: #eee;
+}
+
+table th {
+  padding: 0.7rem;
+  background-color: bisque;
+}
+
+table td {
+  padding: 0.5rem;
+}

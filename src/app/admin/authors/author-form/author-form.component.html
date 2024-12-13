@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="">Nama</label>
+    <input
+      type="text"
+      formControlName="name"
+      [(ngModel)]="authorFormData.name"
+    />
+  </div>
+  <button class="submit-button" type="submit">Submit</button>
+  <button class="cancel-button" (click)="onCancel()">Cancel</button>
+</form>

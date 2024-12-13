@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="sidebar">
+    <a
+      [routerLink]="['authors']"
+      routerLinkActive="selected"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Author</a
+    >
+    <a
+      [routerLink]="['book-admin']"
+      routerLinkActive="selected"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Book</a
+    >
+  </div>
+
+  <div class="main">
+    <!-- <h2>Admin</h2> -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
